@@ -18,7 +18,7 @@ export default function ProjectList({ projects }: ProjectListProps) {
         <span className="text-[11px] font-bold uppercase tracking-[0.3em]">Projetos em destaque</span>
       </div>
 
-      {projects.length > 0 ? projects.map((project, index) => (
+      {projects.length > 0 ? projects.map((project: any, index: number) => (
         <a 
           key={project.id}
           href={project.mediaUrl}

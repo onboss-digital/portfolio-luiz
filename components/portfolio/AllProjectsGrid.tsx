@@ -50,7 +50,7 @@ export default function AllProjectsGrid({ projects }: AllProjectsGridProps) {
       {/* Grid 4 colunas */}
       {displayed.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {displayed.map((project) => (
+          {displayed.map((project: Project) => (
             <a
               key={project.id}
               href={project.mediaUrl}
@@ -109,7 +109,7 @@ export default function AllProjectsGrid({ projects }: AllProjectsGridProps) {
                 )}
                 {project.tags && (
                   <div className="flex flex-wrap gap-1 mt-1">
-                    {project.tags.split(",").filter(Boolean).slice(0, 3).map((tag) => (
+                    {project.tags.split(",").filter(Boolean).slice(0, 3).map((tag: string) => (
                       <span key={tag} className="text-[9px] border border-surface-border px-1.5 py-0.5 rounded-md text-zinc-500 capitalize">
                         {tag.trim()}
                       </span>

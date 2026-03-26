@@ -48,7 +48,7 @@ export default function HeroSection({ settings }: HeroSectionProps) {
  
         {/* Badges - Premium Glass Style */}
         <div className="flex flex-wrap justify-center md:justify-start gap-2.5 mb-10">
-            {stack.map((item) => (
+            {stack.map((item: string) => (
                 <span 
                     key={item} 
                     className="px-5 py-2 rounded-2xl glass-aura text-xs font-bold uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-300 hover:text-primary hover:border-primary/30 transition-all duration-500 cursor-default"
