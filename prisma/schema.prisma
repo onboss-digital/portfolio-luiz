@@ -1,0 +1,111 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Admin {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String   // Hashed via bcrypt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Project {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  type        String   // "Web" | "Video"
+  category    String?  // "Reels", "Retail", "VSL", etc.
+  mediaUrl    String   // Link do site ou link do vídeo (iframe)
+  thumbnail   String?
+  tags        String?  // Tags separadas por vírgula. Ex: "React, Tailwind, Node"
+  isFeatured  Boolean  @default(false)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Testimonial {
+  id        String   @id @default(uuid())
+  name      String
+  role      String?
+  text      String
+  avatarUrl String?
+  stars     Int      @default(5)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SiteSettings {
+  id               String   @id @default("global") // Apenas um registro com ID "global"
+  
+  // Hero Section
+  heroGreeting     String   @default("Olá, me chamo")
+  heroName         String   @default("Luiz Boss")
+  heroTitle        String   @default("Desenvolvedor Full-stack e especialista em produtos digitais premium.")
+  heroDescription  String   @default("Vou ajudar seus projetos como se fosse pra mim, acredite toco alguns negócios e sei como é confiar em alguém que vai mostrar o que é pra ser feito.")
+  heroStack        String   @default("SaaS, IA, Supabase, Stripe, NextJS")
+  heroImageUrl     String?
+  heroButtonText   String   @default("Entrar em Contato")
+  
+  // Contact Info
+  whatsappNumber   String   @default("5511999999999")
+  whatsappMessage  String   @default("Olá Luiz, vi seu portfólio e gostaria de saber mais sobre seu trabalho!")
+  emailContact     String   @default("contato@luizboss.com")
+  
+  // Social/Identity
+  logoText         String   @default("Portfolio")
+  footerText       String   @default("Transformando Ideias em Realidade Digital")
+  footerBottomText String   @default("Luiz Boss © 2026. Todos os Direitos Reservados.")
+
+  // Tracking (Google Tag Manager, Clarity, etc.)
+  gtmId            String?  @default("G-HZVL420SMM")
+  clarityId        String?  @default("sih2jshyh8")
+  
+  updatedAt        DateTime @updatedAt
+}
+
+model Pixel {
+  id          String   @id @default(uuid())
+  title       String   // Nome do Pixel. Ex: Meta Principal
+  provider    String   // facebook, google_analytics, tiktok
+  pixelId     String   // O ID numérico / código
+  status      Boolean  @default(true) // Ativo / Inativo
+  events      String?  @default("[\"PageView\"]") 
+  targetType  String   @default("all") // "all" | "include" | "exclude"
+  targetUrls  String?  // Ex: "/home,/contato"
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model AnalyticSession {
+  id              String   @id @default(uuid())
+  visitorId       String   // ID anônimo persistido no localStorage
+  utmSource       String?
+  utmMedium       String?
+  utmCampaign     String?
+  device          String?  // Desktop / Mobile
+  browser         String?
+  duration        Int      @default(0) // Segundos de permanência
+  isBounce        Boolean  @default(true) // Se teve apenas 1 evento
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  events          AnalyticEvent[]
+}
+
+model AnalyticEvent {
+  id        String   @id @default(uuid())
+  sessionId String
+  type      String   // "page_view", "whatsapp_click"
+  path      String?
+  metadata  Json?    // Opcional
+  createdAt DateTime @default(now())
+  session   AnalyticSession @relation(fields: [sessionId], references: [id])
+}

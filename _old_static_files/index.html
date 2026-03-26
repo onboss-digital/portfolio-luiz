@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HZVL420SMM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HZVL420SMM');
+</script>
+
+    <!-- Clarity -->
+
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "sih2jshyh8");
+</script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="page_title">Portfolio - Luiz Boss</title>
+    <meta name="description" content="Portfolio moderno de desenvolvedor full stack">
+    
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles/custom.css">
+    
+    <!-- TailwindCSS Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#3B82F6',
+                        'secondary': '#1E293B',
+                        'accent': '#06B6D4',
+                    }
+                }
+            },
+            darkMode: 'class'
+        }
+    </script>
+</head>
+<body class="font-inter antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+    
+    <!-- Navigation Header -->
+    <header class="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="text-2xl font-bold text-primary">
+                <span data-translate="logo">Portfolio</span>
+            </div>
+            
+            <!-- Navigation Links -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#intro" class="hover:text-primary transition-colors" data-translate="nav_intro">Início</a>
+                <a href="#skills" class="hover:text-primary transition-colors" data-translate="nav_skills">Habilidades</a>
+                <a href="#projects" class="hover:text-primary transition-colors" data-translate="nav_projects">Projetos</a>
+                <a href="#videos" class="hover:text-primary transition-colors" data-translate="nav_videos">Vídeos</a>
+                <a href="#testimonials" class="hover:text-primary transition-colors" data-translate="nav_testimonials">Depoimentos</a>
+            </div>
+            
+            <!-- Controls -->
+            <div class="flex items-center space-x-4">
+                <!-- Language Switcher -->
+                <div class="relative">
+                    <select id="language-selector" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md px-3 py-1 text-sm text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                        <option value="pt">🇧🇷 PT</option>
+                        <option value="en">🇺🇸 EN</option>
+                        <option value="es">🇪🇸 ES</option>
+                    </select>
+                </div>
+                
+                <!-- Dark Mode Toggle -->
+                <button id="theme-toggle" class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:block"></i>
+                </button>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+            <div class="px-6 py-4 space-y-4">
+                <a href="#intro" class="block hover:text-primary transition-colors" data-translate="nav_intro">Início</a>
+                <a href="#skills" class="block hover:text-primary transition-colors" data-translate="nav_skills">Habilidades</a>
+                <a href="#projects" class="block hover:text-primary transition-colors" data-translate="nav_projects">Projetos</a>
+                <a href="#videos" class="block hover:text-primary transition-colors" data-translate="nav_videos">Vídeos</a>
+                <a href="#testimonials" class="block hover:text-primary transition-colors" data-translate="nav_testimonials">Depoimentos</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="intro" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <!-- Animated Background -->
+        <canvas id="hero-canvas" class="absolute inset-0 opacity-20"></canvas>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up">
+                    <span class="text-gradient" data-translate="hero_greeting">Olá, é um prazer todos me chamam de </span>
+                    <br>
+                    <span class="text-primary" data-translate="hero_name">Luiz Boss</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 animate-fade-in-up animation-delay-200" data-translate="hero_description">
+                  Vou ajudar seus projetos como se fosse pra mim, acredite toco alguns negócios e sei como é confiar em alguém que vai mostrar o que é  pra ser feito.
+                    • Se você procura Agilidade e Qualidade sou a pessoa certa.
+                </p>
+                
+                <div class="flex flex-wrap justify-center gap-4 animate-fade-in-up animation-delay-400">
+                    <span class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">JavaScript</span>
+                    <span class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">React</span>
+                    <span class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">Node.js</span>
+                    <span class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">Python</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-2xl text-gray-400"></i>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4" data-translate="skills_title">Minhas Habilidades</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300" data-translate="skills_subtitle">Tecnologias que domino para criar soluções completas</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <!-- Creative & Technical Skills -->
+                <div class="skill-card group">
+                    <div class="skill-icon">
+                        <i class="fas fa-code text-blue-500"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2" data-translate="skill_web_dev">Web Development</h3>
+                    <div class="skill-progress">
+                        <div class="skill-bar" data-width="95"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card group">
+                    <div class="skill-icon">
+                        <i class="fas fa-video text-red-500"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2" data-translate="skill_video_editing">Video Editing</h3>
+                    <div class="skill-progress">
+                        <div class="skill-bar" data-width="92"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card group">
+                    <div class="skill-icon">
+                        <i class="fas fa-funnel-dollar text-green-500"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2" data-translate="skill_sales_funnel">Sales Funnels</h3>
+                    <div class="skill-progress">
+                        <div class="skill-bar" data-width="88"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card group">
+                    <div class="skill-icon">
+                        <i class="fas fa-robot text-purple-500"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2" data-translate="skill_ai_specialist">AI Specialist</h3>
+                    <div class="skill-progress">
+                        <div class="skill-bar" data-width="90"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card group">
+                    <div class="skill-icon">
+                        <i class="fas fa-microphone text-indigo-500"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2" data-translate="skill_ai_voiceover">AI Voiceovers</h3>
+                    <div class="skill-progress">
+                        <div class="skill-bar" data-width="85"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card group">
+                    <div class="skill-icon">
+                        <i class="fas fa-mobile-alt text-cyan-500"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2" data-translate="skill_mobile_content">Mobile Content</h3>
+                    <div class="skill-progress">
+                        <div class="skill-bar" data-width="87"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card group">
+                    <div class="skill-icon">
+                        <i class="fas fa-bullhorn text-orange-500"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2" data-translate="skill_digital_marketing">Digital Marketing</h3>
+                    <div class="skill-progress">
+                        <div class="skill-bar" data-width="89"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card group">
+                    <div class="skill-icon">
+                        <i class="fas fa-camera text-pink-500"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2" data-translate="skill_content_creation">Content Creation</h3>
+                    <div class="skill-progress">
+                        <div class="skill-bar" data-width="93"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Web Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4" data-translate="projects_title">Projetos Web</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300" data-translate="projects_subtitle">Alguns dos projetos que desenvolvi</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- PARA ADICIONAR NOVO PROJETO: Copie todo este bloco project-card -->
+                
+                <!-- Project 1 -->
+<a href="https://greenfoods.com.br" target="_blank" rel="noopener noreferrer" class="project-card group cursor-pointer block">
+  <div class="project-image relative">
+    <!-- Imagem do card -->
+    <img src="https://i.postimg.cc/k5hk54Vd/Screenshot-1.jpg" alt="Green foods" class="w-full h-48 object-cover rounded-lg">
+
+    <!-- Ícone genérico de link por cima da imagem -->
+    <div class="absolute inset-0 flex items-center justify-center rounded-lg bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition">
+      <i class="fas fa-link text-3xl text-white"></i>
+    </div>
+
+    <!-- Overlay extra opcional (ícone de link externo no canto, se quiser manter) -->
+    <!-- <div class="project-overlay">
+      <i class="fas fa-external-link-alt text-2xl text-white"></i>
+    </div> -->
+  </div>
+
+  <div class="p-6">
+    <h3 class="text-xl font-semibold mb-2" data-translate="project1_title">Site institucional Green foods</h3>
+    <p class="text-gray-600 dark:text-gray-300 mb-4" data-translate="project1_description">Página de apresentação no segmento de hortfruit.</p>
+    <div class="flex flex-wrap gap-2">
+      <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">Wordpress</span>
+      <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">Elementor</span>
+      <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">JavaScript</span>
+    </div>
+  </div>
+</a>
+
+                
+            <!-- Project 2 -->
+<a href="https://lumpic.netlify.app/freelancer" target="_blank" rel="noopener noreferrer" class="project-card group cursor-pointer block">
+  <div class="project-image relative">
+    <!-- Imagem do card -->
+    <img src="https://i.postimg.cc/dVTht7N8/Screenshot-2.jpg" alt="Lumpic" class="w-full h-48 object-cover rounded-lg">
+
+    <!-- Ícone genérico de link por cima da imagem -->
+    <div class="absolute inset-0 flex items-center justify-center rounded-lg bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition">
+      <i class="fas fa-link text-3xl text-white"></i>
+    </div>
+
+    <!-- Overlay extra opcional (ícone de link externo no canto, se quiser manter) -->
+    <!-- <div class="project-overlay">
+      <i class="fas fa-external-link-alt text-2xl text-white"></i>
+    </div> -->
+  </div>
+
+  <div class="p-6">
+    <h3 class="text-xl font-semibold mb-2" data-translate="project2_title">Site institucional de plataforma de freelancers Lumpic</h3>
+    <p class="text-gray-600 dark:text-gray-300 mb-4" data-translate="project2_description">Página de apresentação para plataforma de frelancers de áudio visual.</p>
+    <div class="flex flex-wrap gap-2">
+      <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">React</span>
+      <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">TailwindCSS</span>
+      <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">Node.JS</span>
+    </div>
+  </div>
+</a>
+
+
+                <!-- Project 3 -->
+<a href="https://www.zerandoacucar.com.br" target="_blank" rel="noopener noreferrer" class="project-card group cursor-pointer block">
+  <div class="project-image relative">
+    <!-- Imagem do card -->
+    <img src="https://i.postimg.cc/XJxhPkF3/Screenshot-3.jpg" alt="Zero açúcar" class="w-full h-48 object-cover rounded-lg">
+
+    <!-- Ícone genérico de link por cima da imagem -->
+    <div class="absolute inset-0 flex items-center justify-center rounded-lg bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition">
+      <i class="fas fa-link text-3xl text-white"></i>
+    </div>
+
+    <!-- Overlay extra opcional (ícone de link externo no canto, se quiser manter) -->
+    <!-- <div class="project-overlay">
+      <i class="fas fa-external-link-alt text-2xl text-white"></i>
+    </div> -->
+  </div>
+
+  <div class="p-6">
+    <h3 class="text-xl font-semibold mb-2" data-translate="project3_title">Landing page de suplemento</h3>
+    <p class="text-gray-600 dark:text-gray-300 mb-4" data-translate="project3_description">Landing page de vendas para adoçante natural Zero açúcar.</p>
+    <div class="flex flex-wrap gap-2">
+      <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">Wordpress</span>
+      <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">Elementor</span>
+      <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">JavaScript</span>
+    </div>
+  </div>
+</a>
+
+   <!-- Project 4 -->
+<a href="https://web.sejapriv.online/pg2/" target="_blank" rel="noopener noreferrer" class="project-card group cursor-pointer block">
+  <div class="project-image relative">
+    <!-- Imagem do card -->
+    <img src="https://i.postimg.cc/0y0NVrZv/Screenshot-4.jpg" alt="Página de captura" class="w-full h-48 object-cover rounded-lg">
+
+    <!-- Ícone genérico de link por cima da imagem -->
+    <div class="absolute inset-0 flex items-center justify-center rounded-lg bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition">
+      <i class="fas fa-link text-3xl text-white"></i>
+    </div>
+
+    <!-- Overlay extra opcional (ícone de link externo no canto, se quiser manter) -->
+    <!-- <div class="project-overlay">
+      <i class="fas fa-external-link-alt text-2xl text-white"></i>
+    </div> -->
+  </div>
+
+  <div class="p-6">
+    <h3 class="text-xl font-semibold mb-2" data-translate="project4_title">Página de captura telegram</h3>
+    <p class="text-gray-600 dark:text-gray-300 mb-4" data-translate="project4_description">Página de captura de leads nicho de cassino telegram.</p>
+    <div class="flex flex-wrap gap-2">
+      <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">Wordpress</span>
+      <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">Elementor</span>
+      <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">JavaScript</span>
+    </div>
+  </div>
+</a>
+
+
+ <!-- Project 5 -->
+<a href="https://codigoalfa.com.br" target="_blank" rel="noopener noreferrer" class="project-card group cursor-pointer block">
+  <div class="project-image relative">
+    <!-- Imagem do card -->
+    <img src="https://i.postimg.cc/PrWCLSg2/Screenshot-5.jpg" alt="Código alfa" class="w-full h-48 object-cover rounded-lg">
+
+    <!-- Ícone genérico de link por cima da imagem -->
+    <div class="absolute inset-0 flex items-center justify-center rounded-lg bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition">
+      <i class="fas fa-link text-3xl text-white"></i>
+    </div>
+
+    <!-- Overlay extra opcional (ícone de link externo no canto, se quiser manter) -->
+    <!-- <div class="project-overlay">
+      <i class="fas fa-external-link-alt text-2xl text-white"></i>
+    </div> -->
+  </div>
+
+  <div class="p-6">
+    <h3 class="text-xl font-semibold mb-2" data-translate="project5_title">e-commerce de moda</h3>
+    <p class="text-gray-600 dark:text-gray-300 mb-4" data-translate="project5_description">Loja virtual de moda feminina.</p>
+    <div class="flex flex-wrap gap-2">
+      <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">Wordpress</span>
+      <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">Nuvem shop</span>
+      <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">JavaScript</span>
+    </div>
+  </div>
+</a>
+
+
+<!-- Project 6 -->
+<a href="https://snaphubb.online" target="_blank" rel="noopener noreferrer" class="project-card group cursor-pointer block">
+  <div class="project-image relative">
+    <!-- Imagem do card -->
+    <img src="https://i.postimg.cc/bJFmtQ5w/Screenshot-6.jpg" alt="Streaming +18" class="w-full h-48 object-cover rounded-lg">
+
+    <!-- Ícone genérico de link por cima da imagem -->
+    <div class="absolute inset-0 flex items-center justify-center rounded-lg bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition">
+      <i class="fas fa-link text-3xl text-white"></i>
+    </div>
+
+    <!-- Overlay extra opcional (ícone de link externo no canto, se quiser manter) -->
+    <!-- <div class="project-overlay">
+      <i class="fas fa-external-link-alt text-2xl text-white"></i>
+    </div> -->
+  </div>
+
+  <div class="p-6">
+    <h3 class="text-xl font-semibold mb-2" data-translate="project6_title">Streaming+18</h3>
+    <p class="text-gray-600 dark:text-gray-300 mb-4" data-translate="project6_description">Página de vendas de streaming +18.</p>
+    <div class="flex flex-wrap gap-2">
+      <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">Wordpress</span>
+      <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">TailwindCSS</span>
+      <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">JavaScript</span>
+    </div>
+  </div>
+</a>
+
+                
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Video Projects Section -->
+    <section id="videos" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4" data-translate="videos_title">Projetos em Vídeo</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300" data-translate="videos_subtitle">Demonstrações dos meus trabalhos</p>
+            </div>
+            
+            <!-- Video Category Tabs -->
+            <!-- PARA ADICIONAR NOVA CATEGORIA: Copie um botão e altere data-category e data-translate -->
+            <div class="flex flex-wrap justify-center mb-12 border-b border-gray-200 dark:border-gray-700">
+                <button class="video-tab active px-6 py-3 text-lg font-medium text-primary border-b-2 border-primary transition-all duration-300" data-category="reels" data-translate="tab_reels">Reels</button>
+                <button class="video-tab px-6 py-3 text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-primary border-b-2 border-transparent hover:border-primary/50 transition-all duration-300" data-category="retail" data-translate="tab_retail">Anúncios</button>
+                <button class="video-tab px-6 py-3 text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-primary border-b-2 border-transparent hover:border-primary/50 transition-all duration-300" data-category="vsl" data-translate="tab_vsl">Vídeos VSL</button>
+                <!-- EXEMPLO NOVA CATEGORIA:
+                <button class="video-tab px-6 py-3 text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-primary border-b-2 border-transparent hover:border-primary/50 transition-all duration-300" data-category="nova_categoria" data-translate="tab_nova_categoria">Nova Categoria</button>
+                -->
+            </div>
+            
+            <!-- Video Content Container -->
+            <div id="video-content" class="min-h-96">
+                <!-- Reels -->
+                <!-- PARA ADICIONAR NOVA CATEGORIA: Copie toda esta div e altere data-category -->
+                <div class="video-category active" data-category="reels">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="video-item">
+                            <div class="aspect-w-9 aspect-h-16 max-w-xs mx-auto">
+<iframe src="https://www.youtube.com/embed/niEaeoT7aMY" title="Vídeo do Google Drive" frameborder="0" allow="fullscreen" class="w-full h-full rounded-lg shadow-lg"></iframe>                            </div>
+                            <h3 class="text-lg font-semibold mt-4 mb-2" data-translate="reel1_title">Trend Marketing</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm" data-translate="reel1_desc">Reel viral para engajamento</p>
+                        </div>
+                        <div class="video-item">
+                            <div class="aspect-w-9 aspect-h-16 max-w-xs mx-auto">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Reel 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-lg"></iframe>
+                            </div>
+                            <h3 class="text-lg font-semibold mt-4 mb-2" data-translate="reel2_title">Behind the Scenes</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm" data-translate="reel2_desc">Bastidores do processo criativo</p>
+                        </div>
+                        <div class="video-item">
+                            <div class="aspect-w-9 aspect-h-16 max-w-xs mx-auto">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Reel 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-lg"></iframe>
+                            </div>
+                            <h3 class="text-lg font-semibold mt-4 mb-2" data-translate="reel3_title">Quick Tips</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm" data-translate="reel3_desc">Dicas rápidas e valiosas</p>
+                        </div>
+                        <div class="video-item">
+                            <div class="aspect-w-9 aspect-h-16 max-w-xs mx-auto">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Reel 4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-lg"></iframe>
+                            </div>
+                            <h3 class="text-lg font-semibold mt-4 mb-2" data-translate="reel4_title">Produto em Ação</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm" data-translate="reel4_desc">Demonstração dinâmica do produto</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Retail Ads -->
+                <div class="video-category" data-category="retail">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="video-item">
+                            <div class="aspect-w-16 aspect-h-9">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Retail Ad 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-lg"></iframe>
+                            </div>
+                            <h3 class="text-lg font-semibold mt-4 mb-2" data-translate="retail1_title">Campanha Black Friday</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm" data-translate="retail1_desc">Propaganda para loja de eletrônicos</p>
+                        </div>
+                        <div class="video-item">
+                            <div class="aspect-w-16 aspect-h-9">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Retail Ad 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-lg"></iframe>
+                            </div>
+                            <h3 class="text-lg font-semibold mt-4 mb-2" data-translate="retail2_title">Loja de Moda</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm" data-translate="retail2_desc">Comercial para boutique premium</p>
+                        </div>
+                        <div class="video-item">
+                            <div class="aspect-w-9 aspect-h-16 max-w-sm mx-auto">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Retail Ad 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-lg"></iframe>
+                            </div>
+                            <h3 class="text-lg font-semibold mt-4 mb-2" data-translate="retail3_title">Restaurante Local</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm" data-translate="retail3_desc">Propaganda vertical para redes sociais</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- VSL Videos -->
+                <div class="video-category" data-category="vsl">
+                    <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="video-item">
+                            <div class="aspect-w-16 aspect-h-9">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="VSL 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-lg"></iframe>
+                            </div>
+                            <h3 class="text-lg font-semibold mt-4 mb-2" data-translate="vsl1_title">Curso Online de Marketing</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm" data-translate="vsl1_desc">VSL completo para conversão de curso digital</p>
+                        </div>
+                        <div class="video-item">
+                            <div class="aspect-w-16 aspect-h-9">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="VSL 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-lg"></iframe>
+                            </div>
+                            <h3 class="text-lg font-semibold mt-4 mb-2" data-translate="vsl2_title">Software SaaS</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm" data-translate="vsl2_desc">Video sales letter para plataforma B2B</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div id="video-pagination" class="flex justify-center mt-12">
+                <div class="flex space-x-2">
+                    <button id="prev-page" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-primary hover:text-white transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                        <i class="fas fa-chevron-left mr-2"></i><span data-translate="prev_page">Anterior</span>
+                    </button>
+                    <span id="page-info" class="px-4 py-2 text-gray-600 dark:text-gray-300 flex items-center">
+                        <span data-translate="page_of">Página</span> <span id="current-page">1</span> <span data-translate="page_of_total">de</span> <span id="total-pages">1</span>
+                    </span>
+                    <button id="next-page" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-primary hover:text-white transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                        <span data-translate="next_page">Próximo</span><i class="fas fa-chevron-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4" data-translate="testimonials_title">Depoimentos</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300" data-translate="testimonials_subtitle">O que meus clientes dizem sobre meu trabalho</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div id="testimonials-carousel" class="relative">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-slide active">
+                        <div class="text-center">
+                            <div class="mb-6">
+                                <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                    <i class="fas fa-user text-2xl text-white"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold" data-translate="testimonial1_name">Gustavo Rocha</h3>
+                                <p class="text-gray-600 dark:text-gray-300" data-translate="testimonial1_role">CEO, Super cell</p>
+                            </div>
+                            <blockquote class="text-xl italic text-gray-700 dark:text-gray-300 mb-6" data-translate="testimonial1_text">
+                                "O Luiz sem dúvidas é um excelente profissional, os vídeos da minha loja ficam perfeitos, ele entende o que quero passar para a galera que me assiste."
+                            </blockquote>
+                            <div class="flex justify-center space-x-1">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-slide">
+                        <div class="text-center">
+                            <div class="mb-6">
+                                <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                    <i class="fas fa-user text-2xl text-white"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold" data-translate="testimonial2_name">Erick</h3>
+                                <p class="text-gray-600 dark:text-gray-300" data-translate="testimonial2_role">CEO, Odonto company</p>
+                            </div>
+                            <blockquote class="text-xl italic text-gray-700 dark:text-gray-300 mb-6" data-translate="testimonial2_text">
+                                "Esse cara é pouco reconhecido na plataforma de freelancer, mas seu trabalho é impecável"
+                            </blockquote>
+                            <div class="flex justify-center space-x-1">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-slide">
+                        <div class="text-center">
+                            <div class="mb-6">
+                                <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-pink-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                    <i class="fas fa-user text-2xl text-white"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold" data-translate="testimonial3_name">Ana Oliveira</h3>
+                                <p class="text-gray-600 dark:text-gray-300" data-translate="testimonial3_role">Fundadora, DigitalLab</p>
+                            </div>
+                            <blockquote class="text-xl italic text-gray-700 dark:text-gray-300 mb-6" data-translate="testimonial3_text">
+                                "Pontualidade, criatividade e expertise técnica. Recomendo o Luiz para qualquer projeto de desenvolvimento."
+                            </blockquote>
+                            <div class="flex justify-center space-x-1">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Dots -->
+                    <div class="flex justify-center space-x-2 mt-8">
+                        <button class="testimonial-dot active" data-slide="0"></button>
+                        <button class="testimonial-dot" data-slide="1"></button>
+                        <button class="testimonial-dot" data-slide="2"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing Statement Section -->
+    <section id="closing" class="py-20 bg-gradient-to-r from-primary to-accent text-white">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6" data-translate="closing_title">
+                    Transformando Ideias em Realidade Digital
+                </h2>
+                <p class="text-xl md:text-2xl opacity-90 mb-8" data-translate="closing_description">
+                    O que achou do meu trabalho? Vamos ser parceiro envie uma proposta pela plataforma que você acessou, te aguardo lá!
+                </p>
+                <!-- Social media links removed as requested -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal removed - projects now open in new tabs -->
+
+    <!-- Scripts -->
+    <script src="scripts/translations.js"></script>
+    <script src="scripts/animations.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

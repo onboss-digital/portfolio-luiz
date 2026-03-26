@@ -1,0 +1,527 @@
+/* Custom CSS for the portfolio website */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* CSS Variables for theming */
+:root {
+    --primary-color: #3B82F6;
+    --secondary-color: #1E293B;
+    --accent-color: #06B6D4;
+    --text-primary: #1F2937;
+    --text-secondary: #6B7280;
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F9FAFB;
+    --border-color: #E5E7EB;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+    --text-primary: #F9FAFB;
+    --text-secondary: #D1D5DB;
+    --bg-primary: #111827;
+    --bg-secondary: #1F2937;
+    --border-color: #374151;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+}
+
+/* Text gradient effect */
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Animation classes */
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out;
+}
+
+.animate-pulse {
+    animation: pulse 2s infinite;
+}
+
+.animation-delay-200 {
+    animation-delay: 0.2s;
+    animation-fill-mode: both;
+}
+
+.animation-delay-400 {
+    animation-delay: 0.4s;
+    animation-fill-mode: both;
+}
+
+.animation-delay-600 {
+    animation-delay: 0.6s;
+    animation-fill-mode: both;
+}
+
+/* Hero section canvas */
+#hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Skills section */
+.skill-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.skill-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill-progress {
+    width: 100%;
+    height: 8px;
+    background-color: var(--bg-secondary);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.skill-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    width: 0;
+    transition: width 1.5s ease-in-out;
+    border-radius: 4px;
+}
+
+/* Project cards */
+.project-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.project-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(59, 130, 246, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+/* Video containers */
+.video-container {
+    position: relative;
+}
+
+.aspect-w-16 {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.aspect-w-9 {
+    position: relative;
+    padding-bottom: 177.78%; /* 9:16 aspect ratio */
+}
+
+.aspect-w-16 iframe,
+.aspect-w-9 iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Video tabs */
+.video-tab {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.video-tab:hover {
+    transform: translateY(-1px);
+}
+
+.video-tab.active {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Video categories */
+.video-category {
+    display: none;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.video-category.active {
+    display: block;
+}
+
+/* Video items */
+.video-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Improved responsive aspect ratios */
+.aspect-w-16.aspect-h-9 {
+    padding-bottom: 56.25%; /* 16:9 */
+}
+
+.aspect-w-9.aspect-h-16 {
+    padding-bottom: 177.78%; /* 9:16 */
+}
+
+/* Better responsive handling for vertical videos */
+@media (max-width: 768px) {
+    .aspect-w-9.aspect-h-16 {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .video-item {
+        margin-bottom: 2rem;
+    }
+    
+    /* Stack reels in mobile */
+    .grid.lg\\:grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .aspect-w-9.aspect-h-16 {
+        max-width: 250px;
+    }
+    
+    /* Single column for very small screens */
+    .grid.lg\\:grid-cols-4,
+    .grid.md\\:grid-cols-2,
+    .grid.lg\\:grid-cols-3 {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Responsive tabs */
+    .video-tab {
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Pagination styles */
+#video-pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+#video-pagination button:not(:disabled):hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+}
+
+/* Testimonials */
+.testimonial-slide {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.testimonial-slide.active {
+    display: block;
+    opacity: 1;
+}
+
+.testimonial-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--text-secondary);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.testimonial-dot.active,
+.testimonial-dot:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* Modal styles */
+#project-modal {
+    backdrop-filter: blur(4px);
+}
+
+.max-h-90vh {
+    max-height: 90vh;
+}
+
+/* Smooth scrolling enhancement */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Focus styles for accessibility */
+button:focus,
+select:focus,
+a:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Loading animation for images */
+img {
+    transition: opacity 0.3s ease;
+}
+
+img[loading="lazy"] {
+    opacity: 0;
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    a {
+        text-decoration: underline;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #0000FF;
+        --accent-color: #FF0000;
+        --text-primary: #000000;
+        --text-secondary: #333333;
+        --bg-primary: #FFFFFF;
+        --border-color: #000000;
+    }
+    
+    .dark {
+        --primary-color: #00FFFF;
+        --accent-color: #FFFF00;
+        --text-primary: #FFFFFF;
+        --text-secondary: #CCCCCC;
+        --bg-primary: #000000;
+        --border-color: #FFFFFF;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .skill-card {
+        padding: 1.5rem;
+    }
+    
+    .skill-icon {
+        font-size: 2.5rem;
+        height: 3rem;
+    }
+    
+    .project-card {
+        margin-bottom: 1rem;
+    }
+    
+    .testimonial-slide {
+        padding: 1rem;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+    .skill-card {
+        padding: 1rem;
+    }
+    
+    .skill-icon {
+        font-size: 2rem;
+        height: 2.5rem;
+    }
+    
+    .project-overlay {
+        opacity: 1;
+        background: rgba(59, 130, 246, 0.8);
+    }
+}
+
+/* Landscape mobile orientation */
+@media (max-height: 500px) and (orientation: landscape) {
+    #intro {
+        min-height: 100vh;
+        padding-top: 5rem;
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+/* Selection styles */
+::selection {
+    background: var(--primary-color);
+    color: white;
+}
+
+::-moz-selection {
+    background: var(--primary-color);
+    color: white;
+}
